@@ -41,6 +41,7 @@ Music Is My Life(가제) -음악 추천 웹 사이트
 
 * 참고
 <div align="center">
-  <img src="/images/draw1.png" width="50%">
-  <img src="/images/draw2.png" width="50%">
+  <img src="/images/draw3.png" width="30%">
+  <img src="/images/draw1.png" width="30%">
+  <img src="/images/draw2.png" width="30%">
 </div>
