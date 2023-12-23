@@ -9,29 +9,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        
         .top {
             height: 280px;
             margin-top: 120px;
-
             background-image: url(https://media.istockphoto.com/id/1315768127/ko/%EC%82%AC%EC%A7%84/%EC%B6%94%EC%83%81%EC%A0%81-%EC%9D%B8-%EA%B2%80%EC%9D%80-%EC%83%89-%EB%B0%B0%EA%B2%BD-%EB%B9%88-%EA%B2%80%EC%9D%80-%EC%83%89-%EA%B7%B8%EB%9D%BC%EB%8D%B0%EC%9D%B4%EC%85%98-%EB%A3%B8-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%B0%B0%EA%B2%BD-%EC%B6%94%EC%83%81%EC%A0%81-%EC%9D%B8-%EB%B0%B0%EA%B2%BD-%EA%B2%80%EC%9D%80-%EB%B0%B0%EA%B2%BD-%EA%B2%80%EC%9D%80-%EB%B0%A9-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4-%EB%B0%B0%EA%B2%BD.jpg?s=2048x2048&w=is&k=20&c=VrD7X-FInNay5Tmxht1EwxDkuNnAwl2OLhRtSffPuis=);
             background-position: center;
             background-size: cover;
+            align: center;
+            width: 2000px;
         }
 
         .card {
-            margin-top: 150px;
-            transform: translate(150%);
+            margin-top: 180px;
+            transform: translate(130%);
             padding: 1px;
             text-align: center;
         }
-  
 
+        .card-image-top {
+            width: 100%;
+            position: absolute;
+        }
 
-
-
-
-        a {
+        .aoo {
             position: absolute;
             top: 8%;
             left: 95%;
@@ -49,7 +49,7 @@
             border-radius: 3px;
         }
 
-        a:before {
+        .aoo:before {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -65,12 +65,12 @@
             border-radius: 3px;
         }
 
-        a:hover:before {
+        .aoo:hover:before {
             transform: translatey(0) rotatex(0deg);
             border-radius: 3px;
         }
 
-        a:after {
+        .aoo:after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -86,94 +86,56 @@
             border-radius: 3px;
         }
 
-        a:hover:after {
+        .aoo:hover:after {
             transform: translatey(100%) rotatex(90deg);
             border-radius: 3px;
         }
- 
 
-
-        .aaaa {
+        .search-wrap {
             position: absolute;
-            top: 8%;
-            left: 89.5%;
-            transform: translate(-50%, -50%);
-            width: 78px;
-            height: 42px;
-            line-height: 40px;
+            transform: translateX(704%);
+            margin-top: -18.1%;
+            align: center;
+        }
+
+        .search-input {
+            width: 84%;
+            height: 34px;
+            padding: 8px 9px 8px 36px;
             font-size: 16px;
-            text-align: center;
-            font-family: sans-serif;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: #ccc;
+            color: #c3c8cc;
+            border: none;
+            outline: 0;
+            background-color: #242424;
             border-radius: 3px;
         }
+        a {
+            text-decoration-line : none;
+            }
 
 
-        .aaaa:before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            background: #242424;
-            color: #fff;
-            transition: 0.5s;
-            transform-origin: bottom;
-            transform: translatey(-100%) rotatex(90deg);
-            border-radius: 3px;
-        }
-
-        .aaaa:hover:before {
-            transform: translatey(0) rotatex(0deg);
-            border-radius: 3px;
-        }
-
-        .aaaa:after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            background: #242424;
-            color: #fff;
-            transition: 0.5s;
-            transform-origin: top;
-            transform: translatey(0) rotatex(0deg);
-            border-radius: 3px;
-        }
-
-        .aaaa:hover:after {
-            transform: translatey(100%) rotatex(90deg);
-            border-radius: 3px;
-        }
-
-        
-        
- 
-
-    </style>
+</style>
 </head>
-
 
 <body>
     <div class="top">
         <h1></h1>
     </div>
+    <a class="aoo" href="#" data-text="작성하기"></a>
+    <div class="search-wrap"><input class="search-input">
+        <div class="search-icon"><i class="bx bx-search bx-sm"></i></div>
+    </div>
     
-    <a href="#" data-text="작성하기"></a>
-    <a href="#" class="aaaa" data-text="검색"></a>
-
-    
-
-
-
+    <div class="list-wrap">
+        <h5 class="list-header"><i class="bx bx-sm bx-category"></i><span>Menu</span></h5><ul>
+            <li class="menu1"><a href="#" onclick="return false;">전체 음악</a></li>
+            <li class="menu1"><a href="#" onclick="return false;">발라드</a></li>
+            <li class="menu1"><a href="#" onclick="return false;">POP</a></li>
+            <li class="menu1"><a href="#" onclick="return false;">댄스</a></li>
+            <li class="menu1"><a href="#" onclick="return false;">힙합</a></li>
+            <li class="menu1"><a href="#" onclick="return false;">새로운 블로그</a></li>
+        </ul>
+      </div>
 
     <div class="row row-cols-1 row-cols-md-5 g-4">
         <div class="col">
@@ -215,12 +177,7 @@
                 </div>
             </div>
         </div>
-        
-        
     </div>
-    
-  
-
 </body>
 
 </html>
