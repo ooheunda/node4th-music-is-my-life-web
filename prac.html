@@ -11,6 +11,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Diphylleia&family=Gowun+Batang&family=IBM+Plex+Sans+KR:wght@300&family=Noto+Sans+KR&display=swap');
 
+
         * {
             font-family: 'Black Han Sans', sans-serif;
             font-family: 'Diphylleia', serif;
@@ -30,8 +31,7 @@
             background-position: center;
             background-size: cover;
         }
- 
-        
+
         .a_box {
             width: 100%;
             position: relative;
@@ -41,7 +41,7 @@
             position: absolute;
             top: 50%;
             right: 80px;
-            transform: translate(-200%, -950%);
+            transform: translate(-190%, -950%);
             width: 80PX;
             height: 40px;
             line-height: 40px;
@@ -63,7 +63,7 @@
             height: 100%;
             text-align: center;
             background: #242424;
-            color: #fff;
+            color: #ccc;
             transition: 0.5s;
             transform-origin: bottom;
             transform: translatey(-100%) rotatex(90deg);
@@ -83,7 +83,7 @@
             height: 100%;
             text-align: center;
             background: #242424;
-            color: #fff;
+            color: #ccc;
             transition: 0.5s;
             transform-origin: top;
             transform: translatey(0) rotatex(0deg);
@@ -125,7 +125,7 @@
             height: 100%;
             text-align: center;
             background: #242424;
-            color: #fff;
+            color: #ccc;
             transition: 0.5s;
             transform-origin: bottom;
             transform: translatey(-100%) rotatex(90deg);
@@ -145,7 +145,7 @@
             height: 100%;
             text-align: center;
             background: #242424;
-            color: #fff;
+            color: #ccc;
             transition: 0.5s;
             transform-origin: top;
             transform: translatey(0) rotatex(0deg);
@@ -157,19 +157,128 @@
         }
 
         .video {
-            width: 1200px; 
+            width: 1200px;
             margin: 150px auto 0px auto;
             position: absolute;
             transform: translateX(34%);
         }
+
         .card-footer {
             height: 100px;
         }
 
 
- 
-    </style>
+        .offset1 {
+            font-size: 16.5px;
+            color: #242424;
 
+            box-shadow:
+                0.3em 0.3em 0 0 var(--color),
+                inset 0.3em 0.3em 0 0 var(--color);
+
+            &:hover,
+            &:focus {
+                box-shadow:
+                    0 0 0 0 var(--hover),
+                    inset 6em 3.5em 0 0 var(--hover);
+            }
+        }
+
+        .offset2 {
+            font-size: 16.5px;
+            color: #242424;
+            transform: translate(-141.3%, 200%);
+
+            box-shadow:
+                0.3em 0.3em 0 0 var(--color),
+                inset 0.3em 0.3em 0 0 var(--color);
+            &:hover,
+            &:focus {
+                box-shadow:
+                    0 0 0 0 var(--hover),
+                    inset 6em 3.5em 0 0 var(--hover);
+            }
+        }
+
+        .offset3 {
+            font-size: 16.5px;
+            color: #242424;
+            transform: translate(-281.9%, 400%);
+
+            box-shadow:
+                0.3em 0.3em 0 0 var(--color),
+                inset 0.3em 0.3em 0 0 var(--color);
+            &:hover,
+            &:focus {
+                box-shadow:
+                    0 0 0 0 var(--hover),
+                    inset 6em 3.5em 0 0 var(--hover);
+            }
+        }
+
+        .offset4 {
+            font-size: 16.5px;
+            color: #242424;
+            transform: translate(-423%, 600%);
+
+            box-shadow:
+                0.3em 0.3em 0 0 var(--color),
+                inset 0.3em 0.3em 0 0 var(--color);
+            &:hover,
+            &:focus {
+                box-shadow:
+                    0 0 0 0 var(--hover),
+                    inset 6em 3.5em 0 0 var(--hover);
+            }
+        }
+
+        .offset5 {
+            font-size: 16.5px;
+            color: #242424;
+            transform: translate(-563.6%, 800%);
+
+            box-shadow:
+                0.3em 0.3em 0 0 var(--color),
+                inset 0.3em 0.3em 0 0 var(--color);
+            &:hover,
+            &:focus {
+                box-shadow:
+                    0 0 0 0 var(--hover),
+                    inset 6em 3.5em 0 0 var(--hover);
+            }
+        }
+  
+        @each $button, $color in $colors {
+            .#{$button} {
+                --color: #{$color};
+                --hover: #{adjust-hue($color, 45deg)};
+            }
+        }
+
+        button { 
+            color: var(--color);
+            transition: 0.25s;
+
+            &:hover,
+            &:focus {
+                border-color: var(--hover);
+                color: #fff;
+            }
+        }
+
+        button {
+            background: none;
+            border: 2px solid;
+            font: inherit;
+            line-height: 0;
+            margin: 2em;
+            padding: 1em 2em;
+            height: 40px;
+            width: 170px;  
+        } 
+      </style>
+    <script>
+    </script>
 
 </head>
 
@@ -181,29 +290,18 @@
     <div class="b_box">
         <a href="#" class="b" data-text="작성하기">작성하기</a>
     </div>
- 
-
 
     <div class="video">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col">
                 <div class="card h-100">
-                    <iframe width="382" height="275" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Card title</p>
-                    </iframe>
-                                <div class="card-footer">
-                                    <small class="text-body-secondary">Card title</small>
-                                </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <iframe width="382" height="275" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Card title</p>
+                    <iframe width="382" height="275" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card title</p>
                     </iframe>
                     <div class="card-footer">
                         <small class="text-body-secondary">Card title</small>
@@ -212,10 +310,28 @@
             </div>
             <div class="col">
                 <div class="card h-100">
-                    <iframe width="382" height="275" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Card title</p>
+                    <iframe width="382" height="275" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card title</p>
+                    </iframe>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Card title</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <iframe width="382" height="275" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Card title</p>
                     </iframe>
                     <div class="card-footer">
                         <small class="text-body-secondary">Card title</small>
@@ -224,6 +340,15 @@
             </div>
         </div>
     </div>
+
+    <div class="buttons">
+        <button class="offset1" onclick="location.href='https://www.youtube.com/'">전체 음악</button>
+        <button class="offset2" onclick="location.href='https://www.youtube.com/'">발라드</button>
+        <button class="offset3" onclick="location.href='https://www.youtube.com/'">랩 & 힙합</button>
+        <button class="offset4" onclick="location.href='https://www.youtube.com/'">댄스 & 팝</button>
+        <button class="offset5" onclick="location.href='https://www.youtube.com/'">트로트</button>
+    </div>
+
 
 </body>
 
