@@ -100,6 +100,11 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
 
+        $("#postingbtn").click(async function () {
+            let doc = {};
+            await addDoc(collection(db, "musiccards"), doc);
+        })
+
     </script>
 </head>
 
@@ -142,7 +147,7 @@
                         <option value="Rap">Rap</option>
                         <option value="Others">Others</option>
                     </select>
-                    <button class="inputBtn" id="inputBtn">작성 완료</button>
+                    <button id="postingbtn" class="inputBtn" id="inputBtn">작성 완료</button>
                     <button class="cancelBtn">취소</button>
                 </div>
             </div>
