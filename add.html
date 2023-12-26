@@ -83,10 +83,16 @@
             color: black;
         }
     </style>
-    <script type="module">
-        import { initializeApp } from "firebase/app";
-        import { getAnalytics } from "firebase/analytics";
 
+    <script type="module">
+
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
         const firebaseConfig = {
             apiKey: "AIzaSyD5r_o2TN5KDgpwOxZp2iy6tgqur-lTGC0",
             authDomain: "spartify-web.firebaseapp.com",
@@ -97,9 +103,32 @@
             measurementId: "G-B346RD5FXM"
         };
 
+        // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
 
+        $('#inputBtn').click(async function () {
+            let image = $('#link').val();
+            let title = $('#title').val();
+            let singer = $('#singer').val();
+            let user = $('#user').val();
+            let comment = $('#comment').val();
+            let category = $('#category').val();
+
+            let doc = {
+                'link': link,
+                'title': title,
+                'singer': singer,
+                'user': user,
+                'comment': comment,
+                'category': category
+            };
+
+            await addDoc(collection(db, "songs"), doc);
+
+            alert("저장되었습니다.");
+            window.location.reload();
+        })
     </script>
 </head>
 
@@ -136,9 +165,9 @@
                         <option value="Ballad">Ballad</option>
                         <option value="Jazz">Jazz</option>
                         <option value="R&B">R&B</option>
-                        <option value="Pop Song">Pop Song</option>
+                        <option value="Pop">Pop</option>
                         <option value="Rock">Rock</option>
-                        <option value="Hip hop">Hip hop</option>
+                        <option value="Hip Hop">Hip Hop</option>
                         <option value="Rap">Rap</option>
                         <option value="Others">Others</option>
                     </select>
@@ -151,7 +180,6 @@
     <script>
         const modal = document.querySelector('.modal');
         const modalOpenBtn = document.querySelector('.openBtn');
-        const inputBtn = document.querySelector('.inputBtn');
         const modalCloseBtn = document.querySelector('.cancelBtn');
 
         modalOpenBtn.addEventListener("click", () => {
@@ -159,7 +187,7 @@
         })
 
         modalCloseBtn.addEventListener("click", () => {
-            alert("작성이 취소됩니다.")
+            alert("작성이 취소되었습니다.")
             modal.style.display = "none";
         })
     </script>
