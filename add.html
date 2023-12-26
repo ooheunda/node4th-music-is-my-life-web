@@ -17,6 +17,7 @@
             font-family: 'Nanum Gothic', sans-serif;
         }
 
+        /* 모달창 */
         .openBtn,
         .inputBtn {
             font-family: 'Nanum Gothic', sans-serif;
@@ -65,6 +66,22 @@
         .modal_body>button {
             margin: auto auto 20px auto;
         }
+
+        /* 인풋박스 */
+
+        .form-floating>input {
+            background-color: white;
+            color: black;
+        }
+
+        .form-floating>label {
+            color: #9281bc;
+        }
+
+        .input-group>label {
+            background-color: white;
+            color: black;
+        }
     </style>
     <script type="module">
         import { initializeApp } from "firebase/app";
@@ -90,9 +107,45 @@
     <button type="button" class="openBtn">작성하기</button>
     <div class="modal">
         <div class="modal_body">
-            <p>인풋박스가 들어갑니다.</p>
-            <button class="inputBtn" id="inputBtn">작성 완료</button>
-            <button class="cancelBtn">취소</button>
+            <div class="inputBox" id="inputBox">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="link" placeholder="Youtube Link">
+                    <label for="floatingInput">Youtube Link</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="title" placeholder="제목">
+                    <label for="floatingInput">제목</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="singer" placeholder="가수">
+                    <label for="floatingInput">가수</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="user" placeholder="작성자">
+                    <label for="floatingInput">작성자</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="comment" id="floatingTextarea2"
+                        style="height: 200px"></textarea>
+                    <label for="floatingTextarea2">추천 이유</label>
+                </div>
+                <div class="input-group mb-5">
+                    <select class="form-select" id="category" style="color: #9281bc">
+                        <option selected>카테고리</option>
+                        <option value="K-POP">K-POP</option>
+                        <option value="Ballad">Ballad</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="R&B">R&B</option>
+                        <option value="Pop Song">Pop Song</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Hip hop">Hip hop</option>
+                        <option value="Rap">Rap</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    <button class="inputBtn" id="inputBtn">작성 완료</button>
+                    <button class="cancelBtn">취소</button>
+                </div>
+            </div>
         </div>
     </div>
     <script>
