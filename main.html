@@ -39,6 +39,7 @@
             background-color: black;
             height: 250px;
             margin-top: 100px;
+            background-image: url('https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg');
         }
 
 
@@ -178,7 +179,7 @@
         }
 
         .offset1 {
-            font-size: 16.5px;
+            font-size: 20px;
             background-color: #d9d2ea;
             color: #242424;
 
@@ -195,9 +196,8 @@
         }
 
         .offset2 {
-            font-size: 16.5px;
-            background-color: #d9d2ea;
-            transform: translate(-141.3%, 200%);
+            font-size: 19px;
+            background-color: #d9d2ea; 
             color: #242424;
 
             box-shadow:
@@ -213,9 +213,8 @@
         }
 
         .offset3 {
-            font-size: 16.5px;
-            color: #242424;
-            transform: translate(-281.9%, 400%);
+            font-size: 19px;
+            color: #242424; 
             background-color: #d9d2ea;
 
             box-shadow:
@@ -231,10 +230,9 @@
         }
 
         .offset4 {
-            font-size: 16.5px;
+            font-size: 19px;
             color: #242424;
-            background-color: #d9d2ea;
-            transform: translate(-423%, 600%);
+            background-color: #d9d2ea; 
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -249,10 +247,9 @@
         }
 
         .offset5 {
-            font-size: 16.5px;
+            font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424;
-            transform: translate(-563.6%, 800%);
+            color: #242424; 
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -267,10 +264,9 @@
         }
 
         .offset6 {
-            font-size: 16.5px;
+            font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424;
-            transform: translate(-704.8%, 995%);
+            color: #242424; 
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -285,10 +281,9 @@
         }
 
         .offset7 {
-            font-size: 16.5px;
+            font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424;
-            transform: translate(-846%, 1185%);
+            color: #242424; 
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -303,10 +298,9 @@
         }
 
         .offset8 {
-            font-size: 16.5px;
+            font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424;
-            transform: translate(-0.2%, 1100%);
+            color: #242424; 
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -345,27 +339,18 @@
         button {
             background: none;
             font: inherit;
-            line-height: 0;
-            margin: 2em;
-            padding: 1em 2em;
+            margin: 0.7em;
+            line-height: 0px;
+            padding: 1em 1em;
             height: 40px;
             width: 170px;
         }
-
-        button {
-            background: none;
-            font: inherit;
-            line-height: 0;
-            margin: 2em;
-            padding: 1em 2em;
-            height: 40px;
-            width: 170px;
-        }
-
-        .buttons {
-            transform: translate(0%, 180%);
-            width: 100%;
-            position: absolute;
+        .buttons { 
+            width: 100%; 
+            display: flex;
+            flex-direction: column;   
+            transform: translate(2%, 65%); 
+            
         }
     </style>
     <script>
@@ -387,12 +372,6 @@
     - 유튜브 api이용, 제목 가수명 추천이유 등 표시
     - firebase에서 데이터 불러오기
     - 좋아요 기능 -->
-
-
-
-
-
-
     <h1 class="h1h1"><strong><i>Spartify 🎶</i></strong></h1>
     <h1 class="h2h2"></h1>
 
@@ -454,7 +433,7 @@
         </div>
     </div>
     <div class="buttons">
-        <button class="offset1" onclick="location.href='https://www.youtube.com/'">카테고리</button>
+        <button class="offset1" onclick="location.href='https://www.youtube.com/'"><strong>카테고리</strong></button>
         <button class="offset2" onclick="location.href='https://www.youtube.com/'">K-POP</button>
         <button class="offset3" onclick="location.href='https://www.youtube.com/'">발라드</button>
         <button class="offset4" onclick="location.href='https://www.youtube.com/'">재즈</button>
