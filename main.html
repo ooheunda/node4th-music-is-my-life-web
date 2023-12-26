@@ -20,17 +20,22 @@
             font-family: 'Noto Sans KR', sans-serif;
         }
 
-        
-        .h1h1 {
+        .header__logo {
+            display: flex;
+        }
+
+        #hhhh {
             background-color: #fff;
             color: rgb(63, 47, 103);
-            width: 100%;
-            position: absolute;
-            height: 100px;
+            width: 2000px;
+            height: 50px;
+            transform: translate(15%, -55%);
+            text-align: left;
+            padding: 70px;
             font-size: 55px;
-            line-height: -5px;
-            padding: 20px;
+            line-height: -50px;
         }
+
 
         .h2h2 {
 
@@ -41,7 +46,6 @@
             margin-top: 100px;
             background-image: url('https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg');
         }
-        
 
         .a_box {
             width: 100%;
@@ -60,48 +64,8 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
-            background:rgb(26, 16, 51);
-            border-radius: 5px; 
-        }
-
-        a:before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
             background: rgb(26, 16, 51);
-            color: #fff;
-            transition: 0.5s;
-            transform-origin: bottom;
-            transform: translatey(-100%) rotatex(90deg);
             border-radius: 5px;
-        }
-
-        a:hover:before {
-            transform: translatey(0) rotatex(0deg);
-        }
-
-        a:after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            background: rgb(26, 16, 51);
-            color: #fff;
-            transition: 0.5s;
-            transform-origin: top;
-            transform: translatey(0) rotatex(0deg);
-            border-radius: 5px;
-        }
-
-        a:hover:after {
-            transform: translatey(100%) rotatex(90deg);
         }
 
         .b_box {
@@ -154,7 +118,7 @@
             height: 100%;
             text-align: center;
             background: rgb(26, 16, 51);
-            color:#fff;
+            color: #fff;
             transition: 0.5s;
             transform-origin: top;
             transform: translatey(0) rotatex(0deg);
@@ -195,7 +159,7 @@
 
         .offset2 {
             font-size: 19px;
-            background-color: #d9d2ea; 
+            background-color: #d9d2ea;
             color: #242424;
 
             box-shadow:
@@ -212,7 +176,7 @@
 
         .offset3 {
             font-size: 19px;
-            color: #242424; 
+            color: #242424;
             background-color: #d9d2ea;
 
             box-shadow:
@@ -230,7 +194,7 @@
         .offset4 {
             font-size: 19px;
             color: #242424;
-            background-color: #d9d2ea; 
+            background-color: #d9d2ea;
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -247,7 +211,7 @@
         .offset5 {
             font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424; 
+            color: #242424;
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -264,7 +228,7 @@
         .offset6 {
             font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424; 
+            color: #242424;
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -281,7 +245,7 @@
         .offset7 {
             font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424; 
+            color: #242424;
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -298,7 +262,7 @@
         .offset8 {
             font-size: 19px;
             background-color: #d9d2ea;
-            color: #242424; 
+            color: #242424;
 
             box-shadow:
                 0.3em 0.3em 0 0 var(--color),
@@ -343,12 +307,13 @@
             height: 40px;
             width: 170px;
         }
-        .buttons { 
-            width: 100%; 
+
+        .buttons {
+            width: 100%;
             display: flex;
-            flex-direction: column;   
-            transform: translate(2%, 65%); 
-            
+            flex-direction: column;
+            transform: translate(2%, 65%);
+
         }
     </style>
     <script>
@@ -370,14 +335,14 @@
     - 유튜브 api이용, 제목 가수명 추천이유 등 표시
     - firebase에서 데이터 불러오기
     - 좋아요 기능 -->
-    <h1 class="h1h1"><strong><i>Spartify 🎶</i></strong></h1>
+    <div class="header__logo">
+        <a href="C:/Users/사용자1/Desktop/10조-참쉽조%20관련%20폴더/node4th-music-is-my-life-web/main.html#"
+            id="hhhh"><i><strong>Spartify 🎶</strong></i></a>
+    </div>
     <h1 class="h2h2"></h1>
 
-    <div class="a_box">
-        <a href="#" data-text="검색">검색</a>
-    </div>
     <div class="b_box">
-        <a href="#" class="b" data-text="작성하기">작성하기</a>
+        <a href="#" class="b" data-text="검색">검색</a>
     </div>
 
 
