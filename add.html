@@ -52,19 +52,13 @@
             transform: translate(-50%, -50%);
 
             width: 500px;
-            height: 600px;
+            height: 670px;
             padding: 30px;
 
             text-align: center;
 
             background-color: #d9d2ea;
             border-radius: 10px;
-
-            transform: translateY(center);
-        }
-
-        .modal_body>button {
-            margin: auto auto 20px auto;
         }
 
         /* 인풋박스 */
@@ -115,19 +109,23 @@
             let comment = $('#comment').val();
             let category = $('#category').val();
 
-            let doc = {
-                'link': link,
-                'title': title,
-                'singer': singer,
-                'user': user,
-                'comment': comment,
-                'category': category
-            };
+            if (link == "" || title == "" || singer == "") {
+                alert("링크, 제목, 가수는 필수값입니다.");
+            } else {
+                let doc = {
+                    'link': link,
+                    'title': title,
+                    'singer': singer,
+                    'user': user,
+                    'comment': comment,
+                    'category': category
+                };
 
-            await addDoc(collection(db, "songs"), doc);
+                await addDoc(collection(db, "songs"), doc);
 
-            alert("저장되었습니다.");
-            window.location.reload();
+                alert("저장되었습니다.");
+                window.location.reload();
+            }
         })
     </script>
 </head>
@@ -170,10 +168,10 @@
                         <option value="Rap">Rap</option>
                         <option value="Others">Others</option>
                     </select>
-                    <button class="inputBtn" id="inputBtn">작성 완료</button>
-                    <button class="cancelBtn">취소</button>
                 </div>
             </div>
+            <button class="inputBtn" id="inputBtn">작성 완료</button>
+            <button class="cancelBtn">취소</button>
         </div>
     </div>
     <script>
