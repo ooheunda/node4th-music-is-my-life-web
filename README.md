@@ -14,17 +14,17 @@
 **김경훈** https://github.com/kdevkh  
 역할: 팀장, 작성페이지
 
-**김라임** https://github.com/ramimii 
+**김라임** https://github.com/ramimii  
 역할: 메인페이지
 
-**김성진** https://github.com/castlejinni1226 
+**김성진** https://github.com/castlejinni1226  
+역할: 메인페이지
+
+**이수지** https://github.com/sssujijl  
+역할: 메인페이지
+
+**오다은** https://github.com/ooheunda  
 역할: 작성페이지
-
-**이수지** https://github.com/sssujijl 
-역할: 메인페이지
-
-**오다은** https://github.com/ooheunda 
-역할: 메인페이지
 
 
 ## 프로젝트 소개
