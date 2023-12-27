@@ -177,6 +177,7 @@
             margin: 150px auto 0px auto;
             position: absolute;
             transform: translate(34%, 80%);
+            z-index: 1;
         }
 
         .card-footer {
@@ -318,6 +319,22 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        // Function to convert YouTube link to embeddable format
+        function getYoutubeEmbedLink(link) {
+            // Extract the video ID from the link
+            var videoId;
+
+            // Check if the link is a full URL or just the video ID
+            if (link.includes("youtube.com")) {
+                videoId = link.split('v=')[1];
+            } else {
+                videoId = link;
+            }
+
+            // Construct the embeddable link
+            return `https://www.youtube.com/embed/${videoId}`;
+        }
+
         // 모달창- 데이터 저장용 코드입니다
         $('#inputBtn').click(async function () {
             let link = $('#link').val();
@@ -365,7 +382,7 @@
             let temp_html = `
             <div class="col">
                 <div class="card h-100">
-                    // iframe 넣어주세요 여기
+                    <iframe class="embed-responsive-item" src="${getYoutubeEmbedLink(link)}" allowfullscreen></iframe>
                     <div class="card-footer">
                         <h3 class="title">${title}</h3>
                         <h4 class="singer">${singer}</h4>
@@ -414,10 +431,10 @@
     </div>
 
     <div class="video">
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="card">
-
+        <div class="row row-cols-1 row-cols-md-3 g-3" id="card">
         </div>
     </div>
+    
     <div class="categories">
         <button class="category" onclick="location.href='https://www.youtube.com/'"><strong>카테고리</strong></button>
         <button class="kpop" onclick="location.href='https://www.youtube.com/'">K-POP</button>
@@ -433,19 +450,19 @@
         <div class="modal_body">
             <div class="inputBox" id="inputBox">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="link" placeholder="Youtube Link">
+                    <input type="text" class="form-control" id="link" placeholder="Youtube Link">
                     <label for="floatingInput">Youtube Link</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="title" placeholder="제목">
+                    <input type="text" class="form-control" id="title" placeholder="제목">
                     <label for="floatingInput">제목</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="singer" placeholder="가수">
+                    <input type="text" class="form-control" id="singer" placeholder="가수">
                     <label for="floatingInput">가수</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="user" placeholder="작성자">
+                    <input type="text" class="form-control" id="user" placeholder="작성자">
                     <label for="floatingInput">작성자</label>
                 </div>
                 <div class="form-floating mb-3">
