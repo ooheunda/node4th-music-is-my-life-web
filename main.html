@@ -297,7 +297,6 @@
     </style>
 
     <script type="module">
-
         // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
@@ -319,7 +318,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // 모달 저장용 코드입니다
+        // 모달창- 데이터 저장용 코드입니다
         $('#inputBtn').click(async function () {
             let link = $('#link').val();
             let title = $('#title').val();
@@ -341,15 +340,32 @@
                 };
 
                 await addDoc(collection(db, "songs"), doc);
+                makeCard(link, title, singer, user, comment, category);
 
                 alert("저장되었습니다.");
                 window.location.reload();
             }
+
         })
 
-        // card 불러오는 코드 작성해주세요
-    </script>
+        let docs = await getDocs(collection(db, "songs"));
 
+        docs.forEach((doc) => {
+            let row = doc.data();
+            let link = row['link'];
+            let title = row['title'];
+            let singer = row['singer'];
+            let user = row['user'];
+            let comment = row['comment'];
+            let category = row['category'];
+            makeCard(link, title, singer, user, comment, category);
+        });
+
+        function makeCard(link, title, singer, user, comment, category) {
+            let temp_html = ``;
+            $('#card').append(temp_html);
+        }
+    </script>
 </head>
 
 <body style="background-color:#d9d2ea">
