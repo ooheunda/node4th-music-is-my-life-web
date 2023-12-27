@@ -15,57 +15,43 @@
             font-family: 'Nanum Gothic', sans-serif;
         }
 
-        #logo {
+        .logo_box {
             background-color: #fff;
-            color: rgb(63, 47, 103);
-            width: 2000px;
-            height: 50px;
-            transform: translate(15%, -55%);
-            text-align: left;
-            padding: 70px;
-            font-size: 55px;
-            line-height: -50px;
+            width: 100%;
+            height: 110px;
         }
 
+        #logo {
+            background-color: #fff;
+            text-decoration: none;
+            color: rgb(63, 47, 103);  
+            height: 50px;
+            font-size: 55px;
+            line-height: -50px;
+            padding: 10px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #logo:hover {color:rgb(215, 208, 215) }
 
         .banner {
             width: 100%;
             position: absolute;
             background-color: black;
             height: 250px;
-            margin-top: 100px;
             background-image: url('https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg');
         }
 
-        .a_box {
+        .searchBtn_box {
             width: 100%;
             position: relative;
         }
 
-        a {
+        .searchBtn {
             position: absolute;
-            top: 50px;
-            right: 230px;
-            width: 120PX;
-            height: 40px;
-            line-height: 35px;
-            font-size: 19px;
-            text-align: center;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: rgb(26, 16, 51);
-            border-radius: 5px;
-        }
-
-        .b_box {
-            width: 100%;
-            position: relative;
-        }
-
-        .b {
-            position: absolute;
-            top: 50px;
+            top: -50px;
             right: 80px;
             width: 120PX;
             height: 40px;
@@ -79,7 +65,7 @@
             border-radius: 5px;
         }
 
-        .b:before {
+        .searchBtn:before {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -95,11 +81,11 @@
             border-radius: 5px;
         }
 
-        .b:hover:before {
+        .searchBtn:hover:before {
             transform: translatey(0) rotatex(0deg);
         }
 
-        .b:after {
+        .searchBtn:after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -115,19 +101,19 @@
             border-radius: 5px;
         }
 
-        .b:hover:after {
+        .searchBtn:hover:after {
             transform: translatey(100%) rotatex(90deg);
         }
 
         .video {
-            width: 1110px;
+            width: 1100px;
             margin: 150px auto 0px auto;
             position: absolute;
             transform: translate(34%, 80%);
         }
 
         .card-footer {
-            height: 70px;
+            height: 60px;
         }
 
         .categories {
@@ -138,7 +124,7 @@
 
         }
 
-        .categories>button {
+        .categories > button {
             font-size: 20px;
             background-color: #d9d2ea;
             color: #242424;
@@ -203,13 +189,13 @@
     - 유튜브 api이용, 제목 가수명 추천이유 등 표시
     - firebase에서 데이터 불러오기
     - 좋아요 기능 -->
-    <div>
+    <div class="logo_box">
         <a href="" id="logo"><i><strong>Spartify 🎶</strong></i></a>
     </div>
     <div class="banner"></div>
 
-    <div class="b_box">
-        <a href="#" class="b" data-text="검색">검색</a>
+    <div class="searchBtn_box">
+        <a href="#" class="searchBtn" data-text="검색">검색</a>
     </div>
 
 
