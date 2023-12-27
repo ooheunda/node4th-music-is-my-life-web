@@ -18,21 +18,25 @@
 
         .logo_box {
             background-color: #fff;
-            width: 100%;
+            width: 2000px;
             height: 110px;
         }
 
         #logo {
             background-color: #fff;
             text-decoration: none;
-            color: rgb(63, 47, 103);
-            height: 50px;
+            color: rgb(63, 47, 103);            
             font-size: 55px;
             line-height: -50px;
-            padding: 10px;
+            top: 30px;
+            left: 30px; 
+
+        }
+
+        .logotext { 
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 30px;
+            left: 30px; 
         }
 
         #logo:hover {
@@ -40,8 +44,7 @@
         }
 
         .banner {
-            width: 100%;
-            position: absolute;
+            width: 2000px;
             background-color: black;
             height: 250px;
             background-image: url('https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg');
@@ -49,12 +52,12 @@
 
         .searchBtn_box {
             width: 100%;
-            position: relative;
+            position: absolute;
         }
 
         .searchBtn {
             position: absolute;
-            top: -50px;
+            top: -300px;
             right: 240px;
             width: 120PX;
             height: 40px;
@@ -112,12 +115,12 @@
 
         .postingBtn_box {
             width: 100%;
-            position: relative;
+            position: absolute;
         }
 
         .postingBtn {
             position: absolute;
-            top: -50px;
+            top: -300px;
             right: 80px;
             width: 140PX;
             height: 40px;
@@ -171,12 +174,11 @@
         .postingBtn:hover:after {
             transform: translatey(100%) rotatex(90deg);
         }
-
         .video {
             width: 1100px;
-            margin: 0px auto 0px auto;
-            position: absolute;
-            transform: translate(30%, 45%);
+            margin: 2px auto 2px auto; 
+            display: flex;
+            transform: translate(80px, 80px);
             z-index: 1;
         }
 
@@ -185,10 +187,10 @@
         }
 
         .categoryBtns {
-            width: 100%;
+            width: 210px;
             display: flex;
             flex-direction: column;
-            transform: translate(2%, 45%);
+            transform: translate(2%, -55%); 
 
         }
 
@@ -249,7 +251,7 @@
 
         .cancelBtn {
             background-color: white;
-            color: black;
+            color: #9281bc;
             border-color: #9281bc;
             border-radius: 5px;
         }
@@ -497,7 +499,7 @@
 
 
     <div class="logo_box">
-        <a href="" id="logo"><i><strong>Spartify 🎶</strong></i></a>
+        <a href="" id="logo"><strong><i class="logotext">Spartify 🎶</strong></i></a>
     </div>
     <div class="banner"></div>
 
