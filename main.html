@@ -25,7 +25,7 @@
         #logo {
             background-color: #fff;
             text-decoration: none;
-            color: rgb(63, 47, 103);  
+            color: rgb(63, 47, 103);
             height: 50px;
             font-size: 55px;
             line-height: -50px;
@@ -35,7 +35,9 @@
             left: 10px;
         }
 
-        #logo:hover {color: #d9d2ea}
+        #logo:hover {
+            color: #d9d2ea
+        }
 
         .banner {
             width: 100%;
@@ -108,12 +110,12 @@
 
 
 
-        .writeBtn_box {
+        .postingBtn_box {
             width: 100%;
             position: relative;
         }
 
-        .writeBtn {
+        .postingBtn {
             position: absolute;
             top: -50px;
             right: 80px;
@@ -130,7 +132,7 @@
             z-index: 0;
         }
 
-        .writeBtn:before {
+        .postingBtn:before {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -146,11 +148,11 @@
             border-radius: 5px;
         }
 
-        .writeBtn:hover:before {
+        .postingBtn:hover:before {
             transform: translatey(0) rotatex(0deg);
         }
 
-        .writeBtn:after {
+        .postingBtn:after {
             content: attr(data-text);
             position: absolute;
             top: 0;
@@ -166,13 +168,9 @@
             border-radius: 5px;
         }
 
-        .writeBtn:hover:after {
+        .postingBtn:hover:after {
             transform: translatey(100%) rotatex(90deg);
         }
-
-
-
-
 
         .video {
             width: 1100px;
@@ -193,7 +191,7 @@
 
         }
 
-        .categories > button {
+        .categories>button {
             font-size: 20px;
             background-color: #d9d2ea;
             color: #242424;
@@ -238,8 +236,118 @@
             height: 40px;
             width: 170px;
         }
+
+        /* 모달창 */
+        .inputBtn {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #9281bc;
+            color: white;
+            border-color: transparent;
+            border-radius: 5px;
+        }
+
+        .cancelBtn {
+            background-color: white;
+            color: black;
+            border-color: #9281bc;
+            border-radius: 5px;
+        }
+
+        .modal {
+            position: absolute;
+            display: none;
+
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .modal_body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 500px;
+            height: 700px;
+            padding: 30px;
+
+            text-align: center;
+
+            background-color: #d9d2ea;
+            border-radius: 10px;
+        }
+
+        /* 인풋박스 */
+        .form-floating>input {
+            background-color: white;
+            color: black;
+        }
+
+        .form-floating>label {
+            color: #9281bc;
+        }
+
+        .input-group>label {
+            background-color: white;
+            color: black;
+        }
     </style>
-    <script>
+
+    <script type="module">
+
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        // Firebase 구성 정보 설정
+        const firebaseConfig = {
+            apiKey: "AIzaSyD5r_o2TN5KDgpwOxZp2iy6tgqur-lTGC0",
+            authDomain: "spartify-web.firebaseapp.com",
+            projectId: "spartify-web",
+            storageBucket: "spartify-web.appspot.com",
+            messagingSenderId: "704263516784",
+            appId: "1:704263516784:web:b67336ce32f39b51b67ab5",
+            measurementId: "G-B346RD5FXM"
+        };
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // 모달 저장용 코드입니다
+        $('#inputBtn').click(async function () {
+            let link = $('#link').val();
+            let title = $('#title').val();
+            let singer = $('#singer').val();
+            let user = $('#user').val();
+            let comment = $('#comment').val();
+            let category = $('#category').val();
+
+            if (link == "" || title == "" || singer == "") {
+                alert("링크, 제목, 가수는 필수값입니다.");
+            } else {
+                let doc = {
+                    'link': link,
+                    'title': title,
+                    'singer': singer,
+                    'user': user,
+                    'comment': comment,
+                    'category': category
+                };
+
+                await addDoc(collection(db, "songs"), doc);
+
+                alert("저장되었습니다.");
+                window.location.reload();
+            }
+        })
+
+        // card 불러오는 코드 작성해주세요
     </script>
 
 </head>
@@ -259,7 +367,7 @@
     - firebase에서 데이터 불러오기
     - 좋아요 기능 -->
 
- 
+
     <div class="logo_box">
         <a href="" id="logo"><i><strong>Spartify 🎶</strong></i></a>
     </div>
@@ -270,10 +378,9 @@
     </div>
 
 
-    <div class="writeBtn_box">
-        <a href="#" class="writeBtn" data-text="작성하기">작성하기</a>
+    <div class="postingBtn_box">
+        <a href="#" class="postingBtn" data-text="작성하기">작성하기</a>
     </div>
-
 
     <div class="video">
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -334,6 +441,63 @@
         <button class="rock" onclick="location.href='https://www.youtube.com/'">Rock</button>
         <button class="hiphop" onclick="location.href='https://www.youtube.com/'">힙합</button>
     </div>
+
+    <div class="modal">
+        <div class="modal_body">
+            <div class="inputBox" id="inputBox">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="link" placeholder="Youtube Link">
+                    <label for="floatingInput">Youtube Link</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="title" placeholder="제목">
+                    <label for="floatingInput">제목</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="singer" placeholder="가수">
+                    <label for="floatingInput">가수</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="user" placeholder="작성자">
+                    <label for="floatingInput">작성자</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="추천 이유" id="comment" style="height: 200px"></textarea>
+                    <label for="floatingTextarea2">추천 이유</label>
+                </div>
+                <div class="input-group mb-5">
+                    <select class="form-select" id="category" style="color: #9281bc">
+                        <option selected>카테고리</option>
+                        <option value="K-POP">K-POP</option>
+                        <option value="Ballad">Ballad</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="R&B">R&B</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Hip Hop">Hip Hop</option>
+                        <option value="Rap">Rap</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+            <button class="inputBtn" id="inputBtn">작성 완료</button>
+            <button class="cancelBtn">취소</button>
+        </div>
+    </div>
+    <script> // 모달창용 스크립트입니다
+        const modal = document.querySelector('.modal');
+        const modalOpenBtn = document.querySelector('.postingBtn');
+        const modalCloseBtn = document.querySelector('.cancelBtn');
+
+        modalOpenBtn.addEventListener("click", () => {
+            modal.style.display = "flex";
+        })
+
+        modalCloseBtn.addEventListener("click", () => {
+            alert("작성이 취소되었습니다.")
+            modal.style.display = "none";
+        })
+    </script>
 </body>
 
 </html>
