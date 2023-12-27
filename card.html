@@ -90,6 +90,18 @@
             position: absolute;
             display: none;
         }
+
+        .btn.btn-primary {
+            background-color: transparent;
+            border-color: transparent;
+            color: purple;
+        }
+
+        .more {
+            left: 100px;
+        }
+
+
     </style>
 
     <script>
@@ -130,26 +142,29 @@
                         <p class="card-text">Hype boy</p>
                         <div class="goodbtn">
                             <div class="content">
-                                <span class="heart" id="heart"><i class="fa-regular fa-heart" style="color:grey;"></i></span>
-                                <span class="after" id="after"><i class="fa-solid fa-heart fa-bounce" style="color: #f33d4b;"></i></span>
+                                <span class="heart" id="heart"><i class="fa-regular fa-heart"
+                                        style="color:grey;"></i></span>
+                                <span class="after" id="after"><i class="fa-solid fa-heart fa-bounce"
+                                        style="color: #f33d4b;"></i></span>
                                 <span class="like">Like</span>
                                 <span class="numb"></span>
                             </div>
                         </div>
 
-                    
-                        <p class="d-inline-flex gap-1">
-
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                더보기
-                            </button>
-                        </p>
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body" role="button">
-                                노래 내용
+                        <div class="more text-center">
+                            <p class="d-inline-flex gap-1">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <strong>추천 이유</strong> <i class="fa-solid fa-arrow-down fa-bounce" style="color: #7a35c0;"></i>
+                                </button>
+                            </p>
+                        
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body" role="button">
+                                </div>
                             </div>
                         </div>
+                        
 
                     </div>
                 </div>
