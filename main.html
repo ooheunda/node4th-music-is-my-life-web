@@ -8,6 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8bc9e38e4e.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
@@ -25,18 +27,18 @@
         #logo {
             background-color: #fff;
             text-decoration: none;
-            color: rgb(63, 47, 103);            
+            color: rgb(63, 47, 103);
             font-size: 55px;
             line-height: -50px;
             top: 30px;
-            left: 30px; 
+            left: 30px;
 
         }
 
-        .logotext { 
+        .logotext {
             position: absolute;
             top: 30px;
-            left: 30px; 
+            left: 30px;
         }
 
         #logo:hover {
@@ -45,7 +47,7 @@
 
         .banner {
             overflow: hidden;
-            
+
             background: white;
             white-space: nowrap;
             height: 250px;
@@ -193,9 +195,10 @@
         .postingBtn:hover:after {
             transform: translatey(100%) rotatex(90deg);
         }
+
         .video {
             width: 1100px;
-            margin: 2px auto 2px auto; 
+            margin: 2px auto 2px auto;
             display: flex;
             transform: translate(80px, 80px);
             z-index: 1;
@@ -206,15 +209,15 @@
         }
 
         .h-100 {
-            width: 330px; 
-        } 
+            width: 330px;
+        }
 
         .categoryBtns {
-            width: 210px; 
-            flex-direction: column;  
+            width: 210px;
+            flex-direction: column;
             position: fixed;
             left: 0;
-            top:400px;
+            top: 400px;
 
         }
 
@@ -235,7 +238,8 @@
             }
         }
 
-        @each $button, $color in $colors {
+        @each $button,
+        $color in $colors {
             .#{$button} {
                 --color: #{$color};
                 --hover: #{adjust-hue($color, 45deg)};
@@ -247,20 +251,99 @@
             color: var(--color);
             transition: 0.25s;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 border-color: var(--hover);
                 color: #fff;
             }
         }
 
-        button { 
+        button {
             background: none;
             font: inherit;
             margin: 0.28em;
             line-height: 0px;
-            padding: 1em 1em; 
+            padding: 1em 1em;
             width: 180px;
         }
+
+        /*여기서부터 좋아요 버튼 및 추천 이유란*/
+        .goodbtn {
+            position: relative;
+            left: 170px;
+            bottom: 120px;
+
+            width: 130px;
+
+        }
+
+        .content {
+            border: 2px solid #9c9496;
+            padding: 13px 16px;
+            border-radius: 5px;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .content.heart-active {
+            border-color: #f9b9c4;
+            background: #fbd0d8;
+        }
+
+        .content .heart {
+            width: 50px;
+            position: left;
+            top: 50%;
+            left: 21%;
+
+        }
+
+        .like {
+            margin-left: 30px;
+            font-size: 15px;
+            color: grey;
+        }
+
+        .like.heart-active {
+            color: black;
+        }
+
+        .numb:before {
+            content: '0';
+            font-size: 15px;
+            font-weight: 600;
+            font-family: sans-serif;
+            color: #9c9496;
+            margin-left: 7px;
+        }
+
+        .numb.heart-active:before {
+            content: '1';
+            color: black;
+        }
+
+        .after {
+            position: absolute;
+            display: none;
+        }
+
+        .morebtn {
+            background-color: transparent;
+            border-color: transparent;
+            color: purple;
+        }
+
+        .more {
+            left: 100px;
+        }
+
+        .morevision {
+            display: none;
+            font-size: 15px;
+            text-align: left;
+        }
+        /*여기까지 좋아요 버튼 및 추천 이유란*/
+
 
         /* 모달창 */
         .inputBtn {
@@ -417,6 +500,8 @@
             }
         }
 
+        
+
         function makeCard(link, title, singer, user, comment, category) {
             let temp_html = `
             <div class="col">
@@ -427,15 +512,78 @@
                         <i class="singer">${singer}</i>
                         <p>
                             <small class="user">${user} : </small>
-                            <small class="comment">${comment}</small>
+                            <small class="comment"></small>
                             <br>
                             <small class="category">#${category}</small>
                         </p>
+                        <div class="goodbtn">
+                            <div class="content">
+                                <span class="heart" id="heart"><i class="fa-regular fa-heart"
+                                        style="color:grey;"></i></span>
+                                <span class="after" id="after"><i class="fa-solid fa-heart fa-bounce"
+                                        style="color: #f33d4b;"></i></span>
+                                <span class="like">Like</span>
+                                <span class="numb"></span>
+                            </div>
+                        </div>
+
+                        <div class="more text-center">
+                            <button class="morebtn">
+                                <strong>추천 이유</strong> <i class="fa-solid fa-arrow-down fa-bounce"
+                                    style="color: #7a35c0;"></i>
+                            </button>
+
+                            <ul class="morevision">
+                                <p>
+                                    <hr>${comment}
+                                </p>
+                            </ul>
+
+
+                        </div>
                     </div>
                 </div>
             </div>`;
             $('#card').append(temp_html);
         }
+
+        $(document).ready(function () {
+            $(".content").click(function () {
+
+                $(this).toggleClass("heart-active");
+                $(this).find(".like").toggleClass("heart-active");
+                $(this).find(".heart").toggleClass("heart-active");
+                $(this).find(".numb").toggleClass("heart-active");
+
+                var heart = $(this).find(".heart")[0];
+                var after = $(this).find(".after")[0];
+
+                if (heart.style.display !== 'none') {
+                    heart.style.display = 'none';
+                } else {
+                    heart.style.display = "block";
+                }
+
+                if (after.style.display !== 'block') {
+                    after.style.display = 'block';
+                } else {
+                    after.style.display = "none";
+                }
+            });
+
+            $(".more").click(function () {
+                var morevision = $(this).find(".morevision");
+                morevision.slideToggle();
+
+                if (morevision.style.display !== 'block') {
+                    morevision.style.display = 'block';
+                } else {
+                    morevision.style.display = "none";
+                }
+
+            });
+
+        });
 
         // 카테고리별 카드 출력단
         $('#categoryBtn').click(async function () {
@@ -535,14 +683,14 @@
                 alt="Image 4">
             <img src="https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg"
                 alt="Image 5">
-            
-            
+
+
             <img src="https://postfiles.pstatic.net/MjAyMzA0MTlfMjE5/MDAxNjgxOTA0OTY5OTMx.Wc_7vnVqVQOA45GNXmPXiWV4W5xYEZfhf-4XWRvW-TIg.iTTKUFBYSqJBPgoMdLWut7Il3DN9BSospnLP-zGgFUkg.JPEG.irunatheater/5dd5275474794594a751bf6c9a71c4d2%EF%BC%BF341757212%EF%BC%BF1264176610861375%EF%BC%BF6696994067525812079%EF%BC%BFn.jpg?type=w966"
                 alt="Image 8">
-            
+
             <img src="https://postfiles.pstatic.net/MjAyMzA1MDRfMjEg/MDAxNjgzMTU4Njg5NjMw.O39Xq_2D6OM30KQZxvey9aIb6WPzurrsu7K6FMDlBlYg.60zAcRjWHD30-kTXwfbusSR-S6RyyqHtTFTysHMAMIYg.JPEG.irunatheater/20230504%EF%BC%BF085730.jpg?type=w966"
                 alt="Image 12">
-            
+
         </div>
         <div class="banner-container">
             <img src="https://postfiles.pstatic.net/MjAyMjA5MTFfMjYg/MDAxNjYyODkyMTE1NzUw._zvDQggklTXA8ZHhJxaEeiQ4x-cBL0iCt637WDxlevMg.nPP_bh4smwAAkDD-3PyVQIunjMPsA0u4fMM5M8Hhbhcg.PNG.asd3462123/20220911192818.png?type=w773"
@@ -555,14 +703,14 @@
                 alt="Image 4">
             <img src="https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg"
                 alt="Image 5">
-           
-            
+
+
             <img src="https://postfiles.pstatic.net/MjAyMzA0MTlfMjE5/MDAxNjgxOTA0OTY5OTMx.Wc_7vnVqVQOA45GNXmPXiWV4W5xYEZfhf-4XWRvW-TIg.iTTKUFBYSqJBPgoMdLWut7Il3DN9BSospnLP-zGgFUkg.JPEG.irunatheater/5dd5275474794594a751bf6c9a71c4d2%EF%BC%BF341757212%EF%BC%BF1264176610861375%EF%BC%BF6696994067525812079%EF%BC%BFn.jpg?type=w966"
                 alt="Image 8">
-            
+
             <img src="https://postfiles.pstatic.net/MjAyMzA1MDRfMjEg/MDAxNjgzMTU4Njg5NjMw.O39Xq_2D6OM30KQZxvey9aIb6WPzurrsu7K6FMDlBlYg.60zAcRjWHD30-kTXwfbusSR-S6RyyqHtTFTysHMAMIYg.JPEG.irunatheater/20230504%EF%BC%BF085730.jpg?type=w966"
                 alt="Image 12">
-            
+
         </div>
     </div>
 
@@ -593,7 +741,7 @@
             <button class="othersBtn" id="othersBtn">Others</button>
         </div>
     </div>
-        
+
     <div class="modal">
         <div class="modal_body">
             <div class="inputBox" id="inputBox">
@@ -649,6 +797,10 @@
             modal.style.display = "none";
         })
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
