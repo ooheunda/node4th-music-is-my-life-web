@@ -184,7 +184,7 @@
             height: 100%;
         }
 
-        .categories {
+        .categoryBtns {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -192,7 +192,7 @@
 
         }
 
-        .categories>button {
+        .categoryBtns>button {
             font-size: 20px;
             background-color: #d9d2ea;
             color: #242424;
@@ -368,15 +368,30 @@
         let docs = await getDocs(collection(db, "songs"));
 
         docs.forEach((doc) => {
-            let row = doc.data();
-            let link = row['link'];
-            let title = row['title'];
-            let singer = row['singer'];
-            let user = row['user'];
-            let comment = row['comment'];
-            let category = row['category'];
-            makeCard(link, title, singer, user, comment, category);
+            makeCardData(doc);
         });
+
+        function makeCardData(doc, category) {
+            let row = doc.data();
+
+            if (category == null) { // 일반적인 경우, category를 입력 안 한 경우
+                let link = row['link'];
+                let title = row['title'];
+                let singer = row['singer'];
+                let user = row['user'];
+                let comment = row['comment'];
+                let category = row['category'];
+                makeCard(link, title, singer, user, comment, category);
+            } else if (row['category'] === `${category}`) { // 카테고리별로 만드는 경우
+                let link = row['link'];
+                let title = row['title'];
+                let singer = row['singer'];
+                let user = row['user'];
+                let comment = row['comment'];
+                let category = row['category'];
+                makeCard(link, title, singer, user, comment, category);
+            }
+        }
 
         function makeCard(link, title, singer, user, comment, category) {
             let temp_html = `
@@ -384,8 +399,8 @@
                 <div class="card h-100">
                     <iframe class="embed-responsive-item" src="${getYoutubeEmbedLink(link)}" allowfullscreen></iframe>
                     <div class="card-footer">
-                        <h3 class="title">${title}</h3>
-                        <h4 class="singer">${singer}</h4>
+                        <h4 class="title">${title}</h4>
+                        <i class="singer">${singer}</i>
                         <p>
                             <small class="user">${user} : </small>
                             <small class="comment">${comment}</small>
@@ -397,6 +412,71 @@
             </div>`;
             $('#card').append(temp_html);
         }
+
+        // 카테고리별 카드 출력단
+        $('#categoryBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc);
+            });
+        })
+
+        $('#kpopBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "K-POP");
+            });
+        })
+
+        $('#balladBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "Ballad");
+            });
+        })
+
+        $('#jazzBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "Jazz");
+            });
+        })
+
+        $('#rbBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "R&B");
+            });
+        })
+
+        $('#popBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "Pop");
+            });
+        })
+
+        $('#rockBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "Rock");
+            });
+        })
+
+        $('#hiphopBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "Hip Hop");
+            });
+        })
+
+        $('#othersBtn').click(async function () {
+            $('#card').empty();
+            docs.forEach((doc) => {
+                makeCardData(doc, "Others");
+            });
+        })
+
     </script>
 </head>
 
@@ -435,15 +515,16 @@
         </div>
     </div>
 
-    <div class="categories">
-        <button class="category" id="category"><strong>카테고리</strong></button>
-        <button class="kpop" id="kpop">K-POP</button>
-        <button class="ballad" id="ballad">발라드</button>
-        <button class="jazz" id="jazz">재즈</button>
-        <button class="r&b" id="r&b">R & B</button>
-        <button class="pop" id="pop">팝송</button>
-        <button class="rock" id="rock">Rock</button>
-        <button class="hiphop" id="hiphop">힙합</button>
+    <div class="categoryBtns">
+        <button class="categoryBtn" id="categoryBtn"><strong>카테고리</strong></button>
+        <button class="kpopBtn" id="kpopBtn">K-POP</button>
+        <button class="balladBtn" id="balladBtn">발라드</button>
+        <button class="jazzBtn" id="jazzBtn">재즈</button>
+        <button class="rbBtn" id="rbBtn">R & B</button>
+        <button class="popBtn" id="popBtn">팝송</button>
+        <button class="rockBtn" id="rockBtn">Rock</button>
+        <button class="hiphopBtn" id="hiphopBtn">힙합</button>
+        <button class="othersBtn" id="othersBtn">Others</button>
     </div>
 
     <div class="modal">
@@ -479,7 +560,6 @@
                         <option value="Pop">Pop</option>
                         <option value="Rock">Rock</option>
                         <option value="Hip Hop">Hip Hop</option>
-                        <option value="Rap">Rap</option>
                         <option value="Others">Others</option>
                     </select>
                 </div>
