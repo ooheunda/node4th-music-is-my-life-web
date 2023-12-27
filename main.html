@@ -362,7 +362,22 @@
         });
 
         function makeCard(link, title, singer, user, comment, category) {
-            let temp_html = ``;
+            let temp_html = `
+            <div class="col">
+                <div class="card h-100">
+                    // iframe 넣어주세요 여기
+                    <div class="card-footer">
+                        <h3 class="title">${title}</h3>
+                        <h4 class="singer">${singer}</h4>
+                        <p>
+                            <small class="user">${user} : </small>
+                            <small class="comment">${comment}</small>
+                            <br>
+                            <small class="category">#${category}</small>
+                        </p>
+                    </div>
+                </div>
+            </div>`;
             $('#card').append(temp_html);
         }
     </script>
@@ -399,52 +414,8 @@
     </div>
 
     <div class="video">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <iframe width="352" height="255" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Card title</p>
-                    </iframe>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Card title</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <iframe width="352" height="255" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Card title</p>
-                    </iframe>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Card title</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <iframe width="352" height="255" src="https://www.youtube.com/embed/vkHkLkapjTc?si=266eRDJ2IlkRnnhK"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Card title</p>
-                    </iframe>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Card title</small>
-                    </div>
-                </div>
-            </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="card">
+
         </div>
     </div>
     <div class="categories">
