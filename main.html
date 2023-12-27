@@ -44,10 +44,31 @@
         }
 
         .banner {
-            width: 2000px;
-            background-color: black;
+            overflow: hidden;
+            
+            background: white;
+            white-space: nowrap;
             height: 250px;
-            background-image: url('https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg');
+        }
+
+        .banner-container {
+            display: inline-block;
+            animation: 300s slide linear infinite;
+            height: 250px;
+        }
+
+        .banner-container img {
+            height: 250px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
         .searchBtn_box {
@@ -502,7 +523,48 @@
     <div class="logo_box">
         <a href="" id="logo"><strong><i class="logotext">Spartify 🎶</strong></i></a>
     </div>
-    <div class="banner"></div>
+    <div class="banner">
+        <div class="banner-container">
+            <img src="https://postfiles.pstatic.net/MjAyMjA5MTFfMjYg/MDAxNjYyODkyMTE1NzUw._zvDQggklTXA8ZHhJxaEeiQ4x-cBL0iCt637WDxlevMg.nPP_bh4smwAAkDD-3PyVQIunjMPsA0u4fMM5M8Hhbhcg.PNG.asd3462123/20220911192818.png?type=w773"
+                alt="Image 1">
+            <img src="https://blogfiles.pstatic.net/MjAyMzA1MjJfMTgw/MDAxNjg0NzI0MTY4NzQx.HDc-K6Tc30Lw7AHUTGG_iAvCmoR1ktjAVUSRC6b4R1gg.gqEFywBl891lwpUyYDwy8qSRQSDMCvL1KdsoPYI9Hx8g.PNG.irunatheater/1684489348.png_%EF%BC%883%EF%BC%89.png"
+                alt="Image 2">
+            <img src="https://postfiles.pstatic.net/MjAyMjA5MjFfMjg0/MDAxNjYzNjkwMjYzNjcy.LLuHQbOT-Zl9P4i6qiWIxGkv7LgZ5_UVW-4XeDAfZUAg.HJPsogqk6MwrMcDNqlH9pJMnfod9k9nDGZhPZvvCMRgg.JPEG.eueuy/20220921_011048.jpg?type=w966"
+                alt="Image 3">
+            <img src="https://blogfiles.pstatic.net/MjAyMDA3MjFfMjIx/MDAxNTk1MzM0ODgxOTk4.GdrEqDiSNGf8H-EJm08fouBVHWugI4M-IwwdYUdxHrIg.C3i07xEzCsU3licuXFH5hyVGjWSu1WyiXcgRHmOKiAcg.PNG.dlatjdtn1997/Red_Velvet_at_Soribada_Awards_on_August_23%2C_2019_%282%29.png?type=w2"
+                alt="Image 4">
+            <img src="https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg"
+                alt="Image 5">
+            
+            
+            <img src="https://postfiles.pstatic.net/MjAyMzA0MTlfMjE5/MDAxNjgxOTA0OTY5OTMx.Wc_7vnVqVQOA45GNXmPXiWV4W5xYEZfhf-4XWRvW-TIg.iTTKUFBYSqJBPgoMdLWut7Il3DN9BSospnLP-zGgFUkg.JPEG.irunatheater/5dd5275474794594a751bf6c9a71c4d2%EF%BC%BF341757212%EF%BC%BF1264176610861375%EF%BC%BF6696994067525812079%EF%BC%BFn.jpg?type=w966"
+                alt="Image 8">
+            
+            <img src="https://postfiles.pstatic.net/MjAyMzA1MDRfMjEg/MDAxNjgzMTU4Njg5NjMw.O39Xq_2D6OM30KQZxvey9aIb6WPzurrsu7K6FMDlBlYg.60zAcRjWHD30-kTXwfbusSR-S6RyyqHtTFTysHMAMIYg.JPEG.irunatheater/20230504%EF%BC%BF085730.jpg?type=w966"
+                alt="Image 12">
+            
+        </div>
+        <div class="banner-container">
+            <img src="https://postfiles.pstatic.net/MjAyMjA5MTFfMjYg/MDAxNjYyODkyMTE1NzUw._zvDQggklTXA8ZHhJxaEeiQ4x-cBL0iCt637WDxlevMg.nPP_bh4smwAAkDD-3PyVQIunjMPsA0u4fMM5M8Hhbhcg.PNG.asd3462123/20220911192818.png?type=w773"
+                alt="Image 1">
+            <img src="https://blogfiles.pstatic.net/MjAyMzA1MjJfMTgw/MDAxNjg0NzI0MTY4NzQx.HDc-K6Tc30Lw7AHUTGG_iAvCmoR1ktjAVUSRC6b4R1gg.gqEFywBl891lwpUyYDwy8qSRQSDMCvL1KdsoPYI9Hx8g.PNG.irunatheater/1684489348.png_%EF%BC%883%EF%BC%89.png"
+                alt="Image 2">
+            <img src="https://postfiles.pstatic.net/MjAyMjA5MjFfMjg0/MDAxNjYzNjkwMjYzNjcy.LLuHQbOT-Zl9P4i6qiWIxGkv7LgZ5_UVW-4XeDAfZUAg.HJPsogqk6MwrMcDNqlH9pJMnfod9k9nDGZhPZvvCMRgg.JPEG.eueuy/20220921_011048.jpg?type=w966"
+                alt="Image 3">
+            <img src="https://blogfiles.pstatic.net/MjAyMDA3MjFfMjIx/MDAxNTk1MzM0ODgxOTk4.GdrEqDiSNGf8H-EJm08fouBVHWugI4M-IwwdYUdxHrIg.C3i07xEzCsU3licuXFH5hyVGjWSu1WyiXcgRHmOKiAcg.PNG.dlatjdtn1997/Red_Velvet_at_Soribada_Awards_on_August_23%2C_2019_%282%29.png?type=w2"
+                alt="Image 4">
+            <img src="https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg"
+                alt="Image 5">
+           
+            
+            <img src="https://postfiles.pstatic.net/MjAyMzA0MTlfMjE5/MDAxNjgxOTA0OTY5OTMx.Wc_7vnVqVQOA45GNXmPXiWV4W5xYEZfhf-4XWRvW-TIg.iTTKUFBYSqJBPgoMdLWut7Il3DN9BSospnLP-zGgFUkg.JPEG.irunatheater/5dd5275474794594a751bf6c9a71c4d2%EF%BC%BF341757212%EF%BC%BF1264176610861375%EF%BC%BF6696994067525812079%EF%BC%BFn.jpg?type=w966"
+                alt="Image 8">
+            
+            <img src="https://postfiles.pstatic.net/MjAyMzA1MDRfMjEg/MDAxNjgzMTU4Njg5NjMw.O39Xq_2D6OM30KQZxvey9aIb6WPzurrsu7K6FMDlBlYg.60zAcRjWHD30-kTXwfbusSR-S6RyyqHtTFTysHMAMIYg.JPEG.irunatheater/20230504%EF%BC%BF085730.jpg?type=w966"
+                alt="Image 12">
+            
+        </div>
+    </div>
 
     <div class="searchBtn_box">
         <a href="#" class="searchBtn" data-text="검색">검색</a>
