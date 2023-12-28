@@ -334,7 +334,7 @@
         .modal,
         .addModal {
             position: absolute;
-            display: flex;
+            display: none;
 
             justify-content: center;
 
@@ -697,9 +697,9 @@
         </div>
     </div>
 
-    <div class="addImageBtn_box">
+    <!-- <div class="addImageBtn_box">
         <a href="#" class="addImageBtn" data-text="배너에 이미지 넣기"></a>
-    </div>
+    </div> -->
 
     <div class="postingBtn_box">
         <a href="#" class="postingBtn" data-text="작성하기">작성하기</a>
@@ -781,7 +781,7 @@
         })
     </script>
 
-    <div class="addModal">
+    <!-- <div class="addModal">
         <div class="addModal_body">
             <div class="inputBox" id="inputBox">
                 <div class="form-floating mb-3">
@@ -798,6 +798,7 @@
         const addModalOpenBtn = document.querySelector('.addImageBtn');
         const addModalCloseBtn = document.querySelector('.addCancelBtn');
 
+        console.log(addModal, addModalOpenBtn, addModalCloseBtn)
         addModalOpenBtn.addEventListener("click", () => {
             addModal.style.display = "flex";
         })
@@ -806,7 +807,7 @@
             alert("이미지 추가가 취소되었습니다.")
             addModal.style.display = "none";
         })
-    </script>
+    </script> -->
 </body>
 
 </html>
