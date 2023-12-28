@@ -314,7 +314,8 @@
         }
 
         /* 모달창 */
-        .inputBtn {
+        .inputBtn,
+        .addInputBtn {
             font-family: 'Nanum Gothic', sans-serif;
             background-color: #9281bc;
             color: white;
@@ -322,16 +323,18 @@
             border-radius: 5px;
         }
 
-        .cancelBtn {
+        .cancelBtn,
+        .addCancelBtn {
             background-color: white;
             color: #9281bc;
             border-color: #9281bc;
             border-radius: 5px;
         }
 
-        .modal {
+        .modal,
+        .addModal {
             position: absolute;
-            display: none;
+            display: flex;
 
             justify-content: center;
 
@@ -348,6 +351,22 @@
 
             width: 500px;
             height: 700px;
+            padding: 30px;
+
+            text-align: center;
+
+            background-color: #d9d2ea;
+            border-radius: 10px;
+        }
+
+        .addModal_body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 300px;
+            height: 200px;
             padding: 30px;
 
             text-align: center;
@@ -682,7 +701,6 @@
         <a href="#" class="addImageBtn" data-text="배너에 이미지 넣기"></a>
     </div>
 
-
     <div class="postingBtn_box">
         <a href="#" class="postingBtn" data-text="작성하기">작성하기</a>
     </div>
@@ -706,6 +724,7 @@
         </div>
     </div>
 
+    <!-- 모달창 -->
     <div class="modal">
         <div class="modal_body">
             <div class="inputBox" id="inputBox">
@@ -759,6 +778,33 @@
         modalCloseBtn.addEventListener("click", () => {
             alert("작성이 취소되었습니다.")
             modal.style.display = "none";
+        })
+    </script>
+
+    <div class="addModal">
+        <div class="addModal_body">
+            <div class="inputBox" id="inputBox">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="link" placeholder="이미지 주소를 넣어주세요.">
+                    <label for="floatingInput">이미지 주소</label>
+                </div>
+                <button class="addInputBtn" id="addInputBtn">추가하기</button>
+                <button class="addCancelBtn">취소</button>
+            </div>
+        </div>
+    </div>
+    <script> // 모달창용 스크립트입니다
+        const addModal = document.querySelector('.addModal');
+        const addModalOpenBtn = document.querySelector('.addImageBtn');
+        const addModalCloseBtn = document.querySelector('.addCancelBtn');
+
+        addModalOpenBtn.addEventListener("click", () => {
+            addModal.style.display = "flex";
+        })
+
+        addModalCloseBtn.addEventListener("click", () => {
+            alert("이미지 추가가 취소되었습니다.")
+            addModal.style.display = "none";
         })
     </script>
 </body>
