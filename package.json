@@ -1,0 +1,19 @@
+{
+  "name": "node4th-music-is-my-life-web",
+  "version": "1.0.0",
+  "description": "pakage for deployment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ooheunda/node4th-spartify-web.git"
+  },
+  "author": "ooheunda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ooheunda/node4th-spartify-web/issues"
+  },
+  "homepage": "https://github.com/ooheunda/node4th-spartify-web#index"
+}
