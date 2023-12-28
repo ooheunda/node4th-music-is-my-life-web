@@ -73,70 +73,27 @@
             }
         }
 
-        .searchBtn_box {
+
+        .addImageBtn_box,
+        .postingBtn_box {
             width: 100%;
             position: absolute;
         }
 
-        .searchBtn {
+        .addImageBtn {
             position: absolute;
             top: -300px;
             right: 230px;
             width: 120PX;
             height: 40px;
             line-height: 40px;
-            font-size: 18px;
+            font-size: 12px;
             text-align: center;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             background: rgb(26, 16, 51);
             border-radius: 5px;
-        }
-
-        .searchBtn:before {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            background: rgb(26, 16, 51);
-            color: #fff;
-            transition: 0.5s;
-            transform-origin: bottom;
-            transform: translatey(-100%) rotatex(90deg);
-            border-radius: 5px;
-        }
-
-        .searchBtn:hover:before {
-            transform: translatey(0) rotatex(0deg);
-        }
-
-        .searchBtn:after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            background: rgb(26, 16, 51);
-            color: #fff;
-            transition: 0.5s;
-            transform-origin: top;
-            transform: translatey(0) rotatex(0deg);
-            border-radius: 5px;
-        }
-
-        .searchBtn:hover:after {
-            transform: translatey(100%) rotatex(90deg);
-        }
-
-        .postingBtn_box {
-            width: 100%;
-            position: absolute;
         }
 
         .postingBtn {
@@ -156,6 +113,7 @@
             z-index: 0;
         }
 
+        .addImageBtn:before,
         .postingBtn:before {
             content: attr(data-text);
             position: absolute;
@@ -172,10 +130,12 @@
             border-radius: 5px;
         }
 
+        .addImageBtn:hover:before,
         .postingBtn:hover:before {
             transform: translatey(0) rotatex(0deg);
         }
 
+        .addImageBtn:after,
         .postingBtn:after {
             content: attr(data-text);
             position: absolute;
@@ -192,6 +152,7 @@
             border-radius: 5px;
         }
 
+        .addImageBtn:hover:after,
         .postingBtn:hover:after {
             transform: translatey(100%) rotatex(90deg);
         }
@@ -237,16 +198,7 @@
                     0 0 0 0 var(--hover),
                     inset 6em 3.5em 0 0 var(--hover);
             }
-        }
 
-        @each $button, $color in $colors {
-            .#{$button} {
-                --color: #{$color};
-                --hover: #{adjust-hue($color, 45deg)};
-            }
-        }
-
-        button {
             color: var(--color);
             transition: 0.25s;
 
@@ -255,15 +207,20 @@
                 border-color: var(--hover);
                 color: #fff;
             }
-        }
 
-        button {
             background: none;
             font: inherit;
             margin: 0.28em;
             line-height: 0px;
             padding: 1em 1em;
             width: 180px;
+        }
+
+        @each $button, $color in $colors {
+            .#{$button} {
+                --color: #{$color};
+                --hover: #{adjust-hue($color, 45deg)};
+            }
         }
 
         .goodbtn {
@@ -301,6 +258,7 @@
         .gx-3 {
             --bs-gutter-x: 10rem;
         }
+
         .row-cols-md-3>* {
             flex: 0 0 auto;
             width: 360px;
@@ -675,7 +633,6 @@
     - firebase에서 데이터 불러오기
     - 좋아요 기능 -->
 
-
     <div class="logo_box">
         <a href="" id="logo"><strong><i class="logotext">Spartify 🎶</strong></i></a>
     </div>
@@ -721,8 +678,8 @@
         </div>
     </div>
 
-    <div class="searchBtn_box">
-        <a href="#" class="searchBtn" data-text="검색">검색</a>
+    <div class="addImageBtn_box">
+        <a href="#" class="addImageBtn" data-text="배너에 이미지 넣기"></a>
     </div>
 
 
