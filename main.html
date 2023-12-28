@@ -45,24 +45,6 @@
             color: #d9d2ea
         }
 
-        .banner {
-            overflow: hidden;
-            width: 100%;
-            background: white;
-            white-space: nowrap;
-            height: 250px;
-        }
-
-        .banner-container {
-            display: inline-block;
-            animation: 300s slide linear infinite;
-            height: 250px;
-        }
-
-        .banner-container img {
-            height: 250px;
-        }
-
         @keyframes slide {
             0% {
                 transform: translateX(0);
@@ -73,6 +55,23 @@
             }
         }
 
+        .banner {
+            overflow: hidden;
+            width: 100%;
+            background: white;
+            white-space: nowrap;
+            height: 250px;
+        }
+
+        .banner-container {
+            display: inline-block;
+            animation: 30s slide linear infinite;
+            height: 250px;
+        }
+
+        .banner-container>img {
+            height: 250px;
+        }
 
         .addImageBtn_box,
         .postingBtn_box {
@@ -178,7 +177,7 @@
             flex-direction: column;
             position: fixed;
             left: 0px;
-            top: 350px;
+            top: 360px;
 
         }
 
@@ -210,7 +209,7 @@
 
             background: none;
             font: inherit;
-            margin: 0.1em;
+            margin: 0.18em;
             line-height: 0px;
             padding: 1em 1em;
             width: 160px;
@@ -333,8 +332,9 @@
 
         .modal,
         .addModal {
-            position: absolute;
+            position: fixed;
             display: none;
+            top: 0;
 
             justify-content: center;
 
@@ -343,8 +343,9 @@
             background-color: rgba(0, 0, 0, 0.2);
         }
 
-        .modal_body {
-            position: absolute;
+        .modal_body,
+        .addModal_body {
+            position: fixed;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -360,19 +361,9 @@
         }
 
         .addModal_body {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-
             width: 300px;
-            height: 200px;
+            height: 250px;
             padding: 30px;
-
-            text-align: center;
-
-            background-color: #d9d2ea;
-            border-radius: 10px;
         }
 
         /* 인풋박스 */
@@ -532,6 +523,45 @@
             $('#card').append(temp_html);
         }
 
+        // addmodal
+        $('#addInputBtn').click(async function () {
+            let link = $('#imagelink').val();
+            let info = $('#imageInfo').val();
+
+            if (link == "") {
+                alert("이미지 주소는 필수값입니다.");
+            } else {
+                let doc = {
+                    'imagelink': link,
+                    'imageInfo': info
+                };
+
+                await addDoc(collection(db, "banner_images"), doc);
+
+                alert("이미지 추가가 완료되었습니다.");
+                window.location.reload();
+            }
+
+        })
+
+        let addDocs = await getDocs(collection(db, "banner_images"));
+
+        addDocs.forEach((doc) => {
+            addBanner(doc);
+        });
+
+        function addBanner(doc) {
+            let row = doc.data();
+            console.log(row['imagelink']);
+            let link = row['imagelink'];
+            let temp_html = `
+            <img src="${link}">
+            `;
+            $('#banner-container1').append(temp_html);
+            $('#banner-container2').append(temp_html);
+        }
+
+
         $(document).ready(function () {
             $(".content").click(function () {
 
@@ -656,50 +686,17 @@
         <a href="" id="logo"><strong><i class="logotext">Spartify 🎶</strong></i></a>
     </div>
     <div class="banner">
-        <div class="banner-container">
-            <img src="https://postfiles.pstatic.net/MjAyMjA5MTFfMjYg/MDAxNjYyODkyMTE1NzUw._zvDQggklTXA8ZHhJxaEeiQ4x-cBL0iCt637WDxlevMg.nPP_bh4smwAAkDD-3PyVQIunjMPsA0u4fMM5M8Hhbhcg.PNG.asd3462123/20220911192818.png?type=w773"
-                alt="Image 1">
-            <img src="https://blogfiles.pstatic.net/MjAyMzA1MjJfMTgw/MDAxNjg0NzI0MTY4NzQx.HDc-K6Tc30Lw7AHUTGG_iAvCmoR1ktjAVUSRC6b4R1gg.gqEFywBl891lwpUyYDwy8qSRQSDMCvL1KdsoPYI9Hx8g.PNG.irunatheater/1684489348.png_%EF%BC%883%EF%BC%89.png"
-                alt="Image 2">
-            <img src="https://postfiles.pstatic.net/MjAyMjA5MjFfMjg0/MDAxNjYzNjkwMjYzNjcy.LLuHQbOT-Zl9P4i6qiWIxGkv7LgZ5_UVW-4XeDAfZUAg.HJPsogqk6MwrMcDNqlH9pJMnfod9k9nDGZhPZvvCMRgg.JPEG.eueuy/20220921_011048.jpg?type=w966"
-                alt="Image 3">
-            <img src="https://blogfiles.pstatic.net/MjAyMDA3MjFfMjIx/MDAxNTk1MzM0ODgxOTk4.GdrEqDiSNGf8H-EJm08fouBVHWugI4M-IwwdYUdxHrIg.C3i07xEzCsU3licuXFH5hyVGjWSu1WyiXcgRHmOKiAcg.PNG.dlatjdtn1997/Red_Velvet_at_Soribada_Awards_on_August_23%2C_2019_%282%29.png?type=w2"
-                alt="Image 4">
-            <img src="https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg"
-                alt="Image 5">
-
-
-            <img src="https://postfiles.pstatic.net/MjAyMzA0MTlfMjE5/MDAxNjgxOTA0OTY5OTMx.Wc_7vnVqVQOA45GNXmPXiWV4W5xYEZfhf-4XWRvW-TIg.iTTKUFBYSqJBPgoMdLWut7Il3DN9BSospnLP-zGgFUkg.JPEG.irunatheater/5dd5275474794594a751bf6c9a71c4d2%EF%BC%BF341757212%EF%BC%BF1264176610861375%EF%BC%BF6696994067525812079%EF%BC%BFn.jpg?type=w966"
-                alt="Image 8">
-
-            <img src="https://postfiles.pstatic.net/MjAyMzA1MDRfMjEg/MDAxNjgzMTU4Njg5NjMw.O39Xq_2D6OM30KQZxvey9aIb6WPzurrsu7K6FMDlBlYg.60zAcRjWHD30-kTXwfbusSR-S6RyyqHtTFTysHMAMIYg.JPEG.irunatheater/20230504%EF%BC%BF085730.jpg?type=w966"
-                alt="Image 12">
+        <div class="banner-container" id="banner-container1">
 
         </div>
-        <div class="banner-container">
-            <img src="https://postfiles.pstatic.net/MjAyMjA5MTFfMjYg/MDAxNjYyODkyMTE1NzUw._zvDQggklTXA8ZHhJxaEeiQ4x-cBL0iCt637WDxlevMg.nPP_bh4smwAAkDD-3PyVQIunjMPsA0u4fMM5M8Hhbhcg.PNG.asd3462123/20220911192818.png?type=w773"
-                alt="Image 1">
-            <img src="https://blogfiles.pstatic.net/MjAyMzA1MjJfMTgw/MDAxNjg0NzI0MTY4NzQx.HDc-K6Tc30Lw7AHUTGG_iAvCmoR1ktjAVUSRC6b4R1gg.gqEFywBl891lwpUyYDwy8qSRQSDMCvL1KdsoPYI9Hx8g.PNG.irunatheater/1684489348.png_%EF%BC%883%EF%BC%89.png"
-                alt="Image 2">
-            <img src="https://postfiles.pstatic.net/MjAyMjA5MjFfMjg0/MDAxNjYzNjkwMjYzNjcy.LLuHQbOT-Zl9P4i6qiWIxGkv7LgZ5_UVW-4XeDAfZUAg.HJPsogqk6MwrMcDNqlH9pJMnfod9k9nDGZhPZvvCMRgg.JPEG.eueuy/20220921_011048.jpg?type=w966"
-                alt="Image 3">
-            <img src="https://blogfiles.pstatic.net/MjAyMDA3MjFfMjIx/MDAxNTk1MzM0ODgxOTk4.GdrEqDiSNGf8H-EJm08fouBVHWugI4M-IwwdYUdxHrIg.C3i07xEzCsU3licuXFH5hyVGjWSu1WyiXcgRHmOKiAcg.PNG.dlatjdtn1997/Red_Velvet_at_Soribada_Awards_on_August_23%2C_2019_%282%29.png?type=w2"
-                alt="Image 4">
-            <img src="https://images.chosun.com/resizer/TRylAoJ09lTz-DxqRkoC7Q5cmqA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IGUWJMF4RVAVNB4JXPDZLJME6Q.jpg"
-                alt="Image 5">
-
-            <img src="https://postfiles.pstatic.net/MjAyMzA0MTlfMjE5/MDAxNjgxOTA0OTY5OTMx.Wc_7vnVqVQOA45GNXmPXiWV4W5xYEZfhf-4XWRvW-TIg.iTTKUFBYSqJBPgoMdLWut7Il3DN9BSospnLP-zGgFUkg.JPEG.irunatheater/5dd5275474794594a751bf6c9a71c4d2%EF%BC%BF341757212%EF%BC%BF1264176610861375%EF%BC%BF6696994067525812079%EF%BC%BFn.jpg?type=w966"
-                alt="Image 8">
-
-            <img src="https://postfiles.pstatic.net/MjAyMzA1MDRfMjEg/MDAxNjgzMTU4Njg5NjMw.O39Xq_2D6OM30KQZxvey9aIb6WPzurrsu7K6FMDlBlYg.60zAcRjWHD30-kTXwfbusSR-S6RyyqHtTFTysHMAMIYg.JPEG.irunatheater/20230504%EF%BC%BF085730.jpg?type=w966"
-                alt="Image 12">
+        <div class="banner-container" id="banner-container2">
 
         </div>
     </div>
 
-    <!-- <div class="addImageBtn_box">
+    <div class="addImageBtn_box">
         <a href="#" class="addImageBtn" data-text="배너에 이미지 넣기"></a>
-    </div> -->
+    </div>
 
     <div class="postingBtn_box">
         <a href="#" class="postingBtn" data-text="작성하기">작성하기</a>
@@ -781,12 +778,16 @@
         })
     </script>
 
-    <!-- <div class="addModal">
+    <div class="addModal">
         <div class="addModal_body">
             <div class="inputBox" id="inputBox">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="link" placeholder="이미지 주소를 넣어주세요.">
-                    <label for="floatingInput">이미지 주소</label>
+                    <input type="text" class="form-control" id="imagelink" placeholder="이미지 주소">
+                    <label for="floatingInput">이미지 주소를 넣어주세요.</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="imageInfo" placeholder="이미지 설명">
+                    <label for="floatingInput">간단한 설명을 해주세요.</label>
                 </div>
                 <button class="addInputBtn" id="addInputBtn">추가하기</button>
                 <button class="addCancelBtn">취소</button>
@@ -798,7 +799,6 @@
         const addModalOpenBtn = document.querySelector('.addImageBtn');
         const addModalCloseBtn = document.querySelector('.addCancelBtn');
 
-        console.log(addModal, addModalOpenBtn, addModalCloseBtn)
         addModalOpenBtn.addEventListener("click", () => {
             addModal.style.display = "flex";
         })
@@ -807,7 +807,8 @@
             alert("이미지 추가가 취소되었습니다.")
             addModal.style.display = "none";
         })
-    </script> -->
+    </script>
+
 </body>
 
 </html>
