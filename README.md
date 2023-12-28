@@ -1,4 +1,4 @@
-# node4th-music-is-my-life-web
+# node4th-spartify-web
 
 <div align="center">
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white" />
@@ -10,7 +10,7 @@
 </div>  
 
 
-## 팀원
+## 참쉽조(10조) 팀원
 **김경훈** https://github.com/kdevkh  
 역할: 팀장, 작성페이지
 
@@ -28,7 +28,7 @@
 
 
 ## 프로젝트 소개
-Music Is My Life(가제) -음악 추천 웹 사이트  
+Spartify  
 웹개발 AtoZ 강의 기반의 모두를 위한 음악 추천 사이트  
 
 개발 기간 : 2023.12.22 ~ 2023.12.28 프로젝트 기간 끝
